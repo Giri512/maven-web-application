@@ -20,9 +20,9 @@ node
       sh "${mvnHome}/bin/mvn clean package"
     }
     
-   /* stage ('Sonarqube Report'){
+   stage ('Sonarqube Report'){
       sh "${mvnHome}/bin/mvn sonar:sonar"
-    }*/
+    }
     stage ('Uploadartifacts to Nexus Server'){
       sh "${mvnHome}/bin/mvn deploy"
     } 
@@ -32,10 +32,10 @@ node
     sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.234.35.0:/opt/apache-tomcat-9.0.20/webapps/maven-web-application.war"
 }
     } 
-   /* stage ('Email Notification'){
+   stage ('Email Notification'){
       mail bcc: '', body: '''Build Completed Successfully.
 
 Best Regards,
 Giri.''', cc: '', from: '', replyTo: '', subject: 'Build Completed', to: 'ngkumar.kali@gmail.com'
-    }*/ 
+    } 
 }
