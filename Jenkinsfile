@@ -1,8 +1,16 @@
 node
 {
-    def mvnHome = tool name: 'maven3.6.1', type: 'maven'
-    /* To keep max no of builds */
-    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '3'))])
+  echo "GitHub BranhName ${env. BRANCH_NAME}"
+  echo "Jenkins Job Number ${env.BUILD_NUMBER}"
+  echo "Jenkins Node Name ${env.NODE_NAME}"
+  
+  echo "Jenkins Home ${env.JENKINS_HOME}"
+  echo "Jenkins URL ${env.JENKINS_URL}"
+  echo "JOB Name ${env.JOB_NAME}"
+  
+  def mvnHome = tool name: 'maven3.6.1', type: 'maven'
+  /* To keep max no of builds */
+  properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '3'))])
 
     stage ('checkout code'){
     git branch: 'development', credentialsId: 'c2cf3300-f752-4e07-8cf5-77275a41a2a7', url: 'https://github.com/Giri512/maven-web-application.git'
