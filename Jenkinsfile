@@ -20,9 +20,9 @@ node
       sh "${mvnHome}/bin/mvn clean package"
     }
     
-    stage ('Sonarqube Report'){
+   /* stage ('Sonarqube Report'){
       sh "${mvnHome}/bin/mvn sonar:sonar"
-    }
+    }*/
     stage ('Uploadartifacts to Nexus Server'){
       sh "${mvnHome}/bin/mvn deploy"
     } 
